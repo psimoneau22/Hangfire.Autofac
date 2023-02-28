@@ -108,7 +108,7 @@ Beaware that if you are using multiple lifetime scopes to share services that al
 public class WebOnlyService(){ ... }
 public class SharedService(WebOnlyService){ ... }
 
-builder.RegisterType<SharedService>().InstancePerRequest();
+builder.RegisterType<WebOnlyService>().InstancePerRequest();
 builder.RegisterType<SharedService>().InstancePerMatchingLifetimeScope(requestTag, jobTag);
 ```
 
